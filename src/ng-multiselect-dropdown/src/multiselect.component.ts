@@ -85,7 +85,8 @@ export class MultiSelectComponent implements ControlValueAccessor {
             ? new ListItem(item)
             : new ListItem({
               id: item[this._settings.idField],
-              text: item[this._settings.textField]
+              text: item[this._settings.textField],
+              code: item[this._settings.code]
             })
       );
     }
@@ -140,7 +141,8 @@ export class MultiSelectComponent implements ControlValueAccessor {
                 ? new ListItem(firstItem)
                 : new ListItem({
                   id: firstItem[this._settings.idField],
-                  text: firstItem[this._settings.textField]
+                  text: firstItem[this._settings.textField],
+                  code: firstItem[this._settings.code]
                 })
             ];
           }
@@ -154,7 +156,8 @@ export class MultiSelectComponent implements ControlValueAccessor {
               ? new ListItem(item)
               : new ListItem({
                 id: item[this._settings.idField],
-                text: item[this._settings.textField]
+                text: item[this._settings.textField],
+                code: firstItem[this._settings.code]
               })
         );
         if (this._settings.limitSelection > 0) {
@@ -272,6 +275,7 @@ export class MultiSelectComponent implements ControlValueAccessor {
     const obj = {};
     obj[this._settings.idField] = val.id;
     obj[this._settings.textField] = val.text;
+    obj[this._settings.code] = val.code
     return obj;
   }
 
